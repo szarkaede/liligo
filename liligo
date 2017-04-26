@@ -10,3 +10,11 @@ def conf_interval(list, confidence=0.90):
     deviation = math.sqrt(sum([((x-mean)*(x-mean)) for x in list])/len(list))
     h = deviation * sp.stats.t._ppf((1+confidence)/2., (len(list))-1)
     return mean, mean-h, mean+h
+
+import random
+random.seed(123)
+list = []
+for i in range(0,8999):
+    list = []
+    conf_interval(list)
+    list.append(random.random())
